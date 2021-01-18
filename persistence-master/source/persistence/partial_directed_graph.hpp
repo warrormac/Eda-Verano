@@ -97,21 +97,21 @@ namespace Persistence {
 
       	PartialNode* search_version(unsigned int version) 
       	{
-        	PartialNode* current_version_node = this;//latest version
-        	PartialNode* chosen_node_JIC = current_version_node;
-        	while (current_version_node) 
+        	PartialNode* cvn = this;
+        	PartialNode* cnj = cvn;
+        	while (cvn) 
         	{
-          		if (current_version_node->corresponding_version > version) 
+          		if (cvn->corresponding_version > version) 
 			{
-            			chosen_node_JIC = current_version_node;
-            			current_version_node = current_version_node->prev_version;
+            			cnj = cvn;
+            			cvn = cvn->prev_version;
          		}
-          		else if (current_version_node->corresponding_version == version)
-            			return current_version_node;
+          		else if (cvn->corresponding_version == version)
+            			return cvn;
           		else
             			break;
         	}
-      		return chosen_node_JIC;
+      		return cnj;
       	}
 
 	PartialNode& operator[]( 
