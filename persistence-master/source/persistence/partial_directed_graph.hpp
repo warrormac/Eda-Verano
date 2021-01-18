@@ -170,6 +170,7 @@ class PartialDirectedGraph {
 	{
 		 return u->update_edge(position, v);
 	}
+	~PartialDirectedGraph() { delete root_ptr_; }
 
 	protected:
 	 unsigned int* Cv_ = 0;
