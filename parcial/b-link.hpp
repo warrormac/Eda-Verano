@@ -59,7 +59,7 @@ class BplusTree {
 
   void search(const data_type& value) const 
   {
-    cout << "estoy buscando " << value << "\n";
+    //cout << "estoy buscando " << value << "\n";
     int temp = p - 1;
     while (temp >= 0 && value < val[temp]) 
       temp--;
@@ -68,7 +68,7 @@ class BplusTree {
     if (hoja==true) 
     {
       temp--;
-      (val[temp] == value)?cout << "Encontrado...........!\n ":cout << "No existe\n";
+      //(val[temp] == value)?cout << "Encontrado...........!\n ":cout << "No existe\n";
     }
     else ptr[temp]->search(value); // siguente link
     //for (std::vector<int>::const_iterator i = verificador.begin(); i != verificador.end(); ++i)
@@ -105,7 +105,7 @@ class BplusTree {
   void insert(const data_type& value)  
   {
     
-    cout<<"estoy insertando "<<value<<"\n";
+    //cout<<"estoy insertando "<<value<<"\n";
     
     int temp = 0;
     for(; temp<p; temp++)
@@ -148,7 +148,7 @@ class BplusTree {
 
   void split() 
   {
-    cout<<"toy en el split\n\n";
+    //cout<<"toy en el split\n\n";
     BplusTree* splitedNode = Nodo(); //crea una tabala temporal
         
     splitedNode->hoja = hoja;
